@@ -6,10 +6,15 @@ const app = express();
 console.log("token", process.env.WEATHER_API_KEY);
 
 app.get("/", function(req, res) {
-    const url = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=44.34&lon=10.99&cnt=7&appid=d3e7e1ba0647c411ae6dbb5e5e80e215"
+    const url = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=44.34&lon=10.99&cnt=7&appid=" + process.env.WEATHER_API_KEY;
     
     https.get(url, function(response) {
-        console.log(response);
+
+        response.on("data", function(data) {
+            const weatherData = JSON.parse(data);
+            const population = weatherData.city.population;
+            console.log(population);
+        });
     })
 
     res.send("server is up and running")
