@@ -1,19 +1,20 @@
-const http = require('http');
-
+require('dotenv').config();
 const express = require('express');
+const https = require('https');
 
 const app = express();
+console.log("token", process.env.WEATHER_API_KEY);
 
-app.use((req, res, next) => {
-    console.log('In the middleware!');
-    next(); // Allows the request to continue to the next middleware in line
+app.get("/", function(req, res) {
+    const url = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=44.34&lon=10.99&cnt=7&appid=d3e7e1ba0647c411ae6dbb5e5e80e215"
+    
+    https.get(url, function(response) {
+        console.log(response);
+    })
+
+    res.send("server is up and running")
 });
 
-app.use((req, res, next) => {
-    console.log('In another middleware!');
-    res.send('<h1>Hello from Express!</h1>');
+app.listen(3000, function() {
+    console.log("Server is running on port 3000")
 });
-
-const server = http.createServer(app);
-
-server.listen(3000);

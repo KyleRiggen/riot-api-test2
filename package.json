@@ -1,19 +1,28 @@
 {
-  "name": "nodejs-complete-guide",
+  "name": "riot-api-test",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide",
+  "description": "testing riot api",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
     "start-server": "node app.js"
   },
-  "author": "Maximilian Schwarzmüller",
-  "license": "ISC",
+  "author": "kyle riggen",
+  "license": "MIT",
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.16.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleRiggen/riot-api-test2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KyleRiggen/riot-api-test2/issues"
+  },
+  "homepage": "https://github.com/KyleRiggen/riot-api-test2#readme"
 }
